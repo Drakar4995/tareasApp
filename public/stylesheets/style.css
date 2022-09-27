@@ -1,0 +1,30 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.title{
+  color: green;
+}
+
+.titleform
+{
+  color: orange;
+}
+
+.text{
+ width: 300px;
+}
+.textarea
+{
+  width: 325px;
+  height: 350px;
+}
+.nostyle{
+  text-decoration: none;
+   color: black;
+}
