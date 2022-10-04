@@ -4,7 +4,7 @@ html{
 body {
   clear: both;
   padding: 50px;
-  
+  background-color: bisque;
   font: 16px "brandon-grotesque", "Open Sans", Helvetica, Arial, sans-serif;
 }
 
@@ -23,10 +23,17 @@ header .title{
   padding-top: 10px;
   padding-bottom: 10px;
 }
-h1.title
+
+h2.title
 {
+text-align: center;
 font-size: 40px;
 }
+
+.table-index{
+  margin: auto;
+}
+
 .title{
   font-family: "brandon-grotesque";
   text-transform: uppercase;
@@ -42,6 +49,11 @@ header .logo{
 .titleform
 {
   color: orange;
+}
+
+.div-index{
+  background-color: #00ADB5;
+  width: 100%;
 }
 
 .text{
