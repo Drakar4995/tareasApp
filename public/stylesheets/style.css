@@ -1,16 +1,44 @@
+html{
+  background-color: #EEEEEE;
+}
 body {
+  clear: both;
   padding: 50px;
-  font: 14px "Open Sans", Helvetica, Arial, sans-serif;
+  
+  font: 16px "brandon-grotesque", "Open Sans", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+  margin-top: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
-
+td{
+  font-size: 14px;
+}
+header .title{
+  text-align: center;
+  clear: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+h1.title
+{
+font-size: 40px;
+}
 .title{
-  color: green;
+  font-family: "brandon-grotesque";
+  text-transform: uppercase;
+  color: #00ADB5;
+  clear: both;
+  margin: auto;
 }
-
+header .logo{
+  float: left;
+  height: 50px;
+  width: 80px;
+}
 .titleform
 {
   color: orange;
