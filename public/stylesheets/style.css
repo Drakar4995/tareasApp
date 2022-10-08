@@ -1,36 +1,62 @@
 html{
-  background-color: #EEEEEE;
+  background-color: #ffffff;
+  font: 16px "Open Sans";
 }
 body {
   clear: both;
-  padding: 50px;
-  
-  font: 16px "brandon-grotesque", "Open Sans", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-  margin-top: 10px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  background-color: rgb(255, 255, 255);
+  font: 16px "Open Sans";
+  font-family: sans-serif;
+  margin: 0;;
 }
 td{
   font-size: 14px;
 }
+header {
+  background-color: white;
+  width: 100%;
+  border-bottom: 2px solid #000000;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
 header .title{
+  font-size: 70px;
+  font-weight: 600;
+  background-image: linear-gradient(to left, #ffffff, hsla(172, 100%, 97%, 0.749));
+  font-family: sans-serif;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
   text-align: center;
   clear: none;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
-h1.title
+
+footer{
+  text-align: center;
+}
+
+h2.title
 {
+text-align: center;
 font-size: 40px;
+font-family: sans-serif;
+color: #000000;
 }
+
+.table-index{
+  margin: auto;
+}
+
+.logo-link{
+  background-color:none;
+  color:#000
+  text-decoration:none;
+}
+
 .title{
   font-family: "brandon-grotesque";
-  text-transform: uppercase;
-  color: #00ADB5;
+  text-transform: uppercase;∫
   clear: both;
   margin: auto;
 }
@@ -44,6 +70,12 @@ header .logo{
   color: orange;
 }
 
+.div-index{
+  background-color: #ffffff;
+  width: 100%;
+  border: 1px solid #000000;
+}
+
 .text{
  width: 300px;
 }
@@ -55,4 +87,16 @@ header .logo{
 .nostyle{
   text-decoration: none;
    color: black;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
