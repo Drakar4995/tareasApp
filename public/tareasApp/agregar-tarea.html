@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="\stylesheets\style.css" type="text/css">
     <link rel="stylesheet" href="\stylesheets\styleLinks.css" type="text/css">
+    <link rel="stylesheet" href="\stylesheets\alternativeSites.css" type="text/css">
     <!-- Scripts -->
 
 </head>
@@ -18,10 +19,13 @@
 
 <body>
     
-    <h2 class="title">
+    <p class="addTask">
         Agregar Tarea
-    </h2>
-    <a href="index.html">Listado</a>
+    </p>
+    <a class="top-spacer" href="index.html">
+        <input class="boton-delete" type="button" value="Listado" />
+    </a>
+
     <form>
         <label class="titleform" for="titulo">Titulo</label> <br>
         <input class="text" type="text" > <br>
@@ -29,8 +33,10 @@
         <label class="titleform" for="descripcion">Descripcion</label> <br>
         <textarea class="textarea"> </textarea>
     </form>
-    <button type="button" > <a class="nostyle" href="ver-tarea.html"> Guardar</a> </button>
-    <button type="button"> Limpiar </button>
+    <a class="logo-link" href="ver-tarea.html">
+        <input class="boton-delete" type="button" value="Guardar"/>
+    </a>
+    <button class=boton-delete type="button"> Limpiar </button>
     
     
 </body> 
