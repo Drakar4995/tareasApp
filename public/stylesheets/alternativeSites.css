@@ -34,3 +34,10 @@ body p.addTask {
     font-weight: bold;
     font-size: 40px;
 }
+
+body p.title{
+    margin-top: 10px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+}
