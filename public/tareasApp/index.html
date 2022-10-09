@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="\stylesheets\style.css" type="text/css">
     <link rel="stylesheet" href="\stylesheets\styleLinks.css" type="text/css">
+    <link rel="stylesheet" href="\stylesheets\background-styles.css" type="text/css">
      <!-- Scripts -->
 </head>
 
@@ -16,14 +17,16 @@
 </header>
 
 <body>
-    <a href="agregar-tarea.html" class="links-index"> Agregar</a>
-    <h2 class="title">Listado de Tareas</h2>
+    <p class="title-list">Listado de Tareas</p>
     <div class="div-index">
         <table class="table-index">
             <thead>
                 <tr>
                     <th>
-                        Tarea
+                        Tareas
+                    </th>
+                    <th>
+                        <a class="agregar-link"href="agregar-tarea.html" class="links-index"> Agregar Tarea</a>
                     </th>
                 </tr>
             </thead>
@@ -34,21 +37,27 @@
                         <a href="ver-tarea.html">Titulo Tarea 1</a>
                     </td>
                     <td>
-                        <a href="borrar-tarea.html"> X </a>
+                        <a class="logo-link" href="borrar-tarea.html">
+                            <input type="button" value="Eliminar" />
+                        </a>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <a href="ver-tarea.html"> Titulo Tarea 2</td>
                     <td>
-                        <a href="borrar-tarea.html"> X </a>
+                        <a class="logo-link" href="borrar-tarea.html">
+                            <input type="button" value="Eliminar" />
+                        </a>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <a href="ver-tarea.html"> Titulo Tarea 3</td>
                     <td>
-                        <a href="borrar-tarea.html"> X </a>
+                        <a class="logo-link" href="borrar-tarea.html">
+                            <input type="button" value="Eliminar" />
+                        </a>
                     </td>
                 </tr>
             </tbody>
