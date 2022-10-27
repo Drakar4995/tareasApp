@@ -7,7 +7,7 @@ class IdGenerator
     {
         return this.lastId++;
     }
-
+        
 }
 
 let idGenerator = new IdGenerator();
