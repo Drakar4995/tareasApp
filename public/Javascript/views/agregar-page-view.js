@@ -5,13 +5,11 @@ class AgregarPageView extends PageView{
         Agregar Tarea
        </p>
        
-       <div class="div-delete-task">git
-        <a class="top-spacer" href="/tareasApp/listado" onclick="router.route('')">
-            Listado
-        </a>
+       <div class="div-delete-task">
+        <a class="top-spacer-form" href="/tareasApp/listado" onclick="router.route('')">Listado</a>
        
         <form>
-            <label class="titleform" for="titulo">Titulo</label> <br>
+            <label class="titleformone" for="titulo">Titulo</label> <br>
             <input class="text" type="text"> <br>
        
             <label class="titleform" for="descripcion">Descripcion</label> <br>

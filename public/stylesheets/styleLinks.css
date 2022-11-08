@@ -1,4 +1,4 @@
-a:not(.logo-link,.top-spacer){
+a:not(.logo-link,.top-spacer,.top-spacer-form){
     background-image: linear-gradient(
       to right,
       #ff0800,
@@ -16,7 +16,7 @@ a:not(.logo-link,.top-spacer){
     transition: all 0.3s ease-in-out;
   }
   
-  a:not(.logo-link,.top-spacer):before {
+  a:not(.logo-link,.top-spacer,.top-spacer-form):before {
     content: '';
     background: #ff0000;
     display: block;
@@ -28,10 +28,10 @@ a:not(.logo-link,.top-spacer){
     transition: all 0.3s ease-in-out;
   }
   
-  a:not(.logo-link,.top-spacer):hover {
+  a:not(.logo-link,.top-spacer,.top-spacer-form):hover {
    background-position: 0;
   }
   
-  a:not(.logo-link,.top-spacer):hover::before {
+  a:not(.logo-link,.top-spacer,.top-spacer-form):hover::before {
     width:100%;
   }
