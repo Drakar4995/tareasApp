@@ -11,48 +11,22 @@ class IndexPageView extends PageView{
                             Tareas
                         </th>
                         <th>
-                            <a class="logo-link"href="agregar-tarea.html" class="links-index"><input class="boton-delete" type="button" value="Agregar Tarea" /></a>
+                            <a class="logo-link" href="/tareasApp/agregar" onclick="router.route()" class="links-index">Agregar tarea</a>
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                <script>
-                
-                </script>
-                    <tr>
-                        <td>
-                            <a href="ver-tarea.html">Titulo Tarea 1</a>
-                        </td>
-                        <td>
-                            <a class="logo-link" href="borrar-tarea.html">
-                                <input class="boton-delete" type="button" value="Eliminar" />
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="ver-tarea.html"> Titulo Tarea 2</td>
-                        <td>
-                            <a class="logo-link" href="borrar-tarea.html">
-                                <input class="boton-delete" type="button" value="Eliminar" />
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="ver-tarea.html"> Titulo Tarea 3</td>
-                        <td>
-                            <a class="logo-link" href="borrar-tarea.html">
-                                <input class="boton-delete" type="button" value="Eliminar"/>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>`
+                <tbody>`;
 
-        
-        
+           for(let i=0 ; i < tareas.length ; i++){
+            this.content += `<tr> <td> <a href="controlador/ ?id=`+ tareas[i]._id+`" >` + tareas[i]._titulo +`</td> 
+            <td>
+                            <a class="logo-link" href="borrar-tarea.html">
+                                <input class="boton-delete" type="button" value="Eliminar" />
+                            </a>
+                        </td>
+            </tr>`;
+
+           }
         //this.incrementarContadorView =  new ContadorView(model, 'contador');
     }
     
@@ -61,4 +35,3 @@ class IndexPageView extends PageView{
         //this.incrementarContadorView.refresh();
     }
 }
-
