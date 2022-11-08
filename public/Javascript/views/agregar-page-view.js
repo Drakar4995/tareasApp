@@ -13,17 +13,17 @@ class AgregarPageView extends PageView{
             <input class="text" type="text"> <br>
        
             <label class="titleform" for="descripcion">Descripcion</label> <br>
-            <textarea class="textarea"> </textarea>
+            <textarea class="textarea" id="descripcion"> </textarea>
         </form>
-        <a class="logo-link" href="ver-tarea.html">
-            <input class="boton-delete" type="button" value="Guardar" />
+        <button type="button" onclick="agregarController.agregarTareaController.onGuardarClick(event)">Agregar</button>
         </a>
         <button class=boton-delete type="button"> Limpiar </button>
        </div>`;
+       this.agregarTareaView = new AgregarTareaView(model,"agregarTarea");
     }
-
     refresh(){
         super.refresh();
+        this.agregarTareaView.refresh();
     }
 
 }
