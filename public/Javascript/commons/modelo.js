@@ -25,6 +25,9 @@ class TareaApp {
         this.tareas=this.tareas.filter(tarea => tarea._id != _id)
         
     }
+    getTareas(){
+        return this.tareas;
+    }
     modificarTarea(_id,titulo,descripcion)
     {
         let tarea = this.tareas.find(tarea => tarea._id == _id)

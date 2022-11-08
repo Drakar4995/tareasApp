@@ -9,6 +9,21 @@
     <link rel="stylesheet" href="\stylesheets\styleLinks.css" type="text/css">
     <link rel="stylesheet" href="\stylesheets\background-styles.css" type="text/css">
      <!-- Scripts -->
+
+     <script src="../Javascript/commons/id-generator.js"></script>
+     <script src="../Javascript/commons/modelo.js"></script>
+
+     <script src="../Javascript/commons/view.js"></script>
+     <script src="../Javascript/commons/page-view.js"></script>
+     <script src="../Javascript/commons/controller.js"></script>
+     <script src="../Javascript/commons/page-controller.js"></script>
+     <script src="../Javascript/commons/router.js"></script>
+     <script src="../Javascript/commons/local-storage-model.js"></script>
+
+     <script src="../Javascript/controller/index-controller.js"></script>
+     <script src="../Javascript/views/index-page-view.js"></script>
+
+     <script src="../index.js"></script>
 </head>
 
 <header>
@@ -16,7 +31,13 @@
     <p class="title" >Sitio Web de Tareas</p>
 </header>
 
-<body>
+<body onload="init()">
+<div id="main">
+
+</div>
+
+
+<!--     
     <p class="title-list">Listado de Tareas</p>
     <div class="div-index">
         <table class="table-index">
@@ -62,7 +83,7 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div> -->
 </body>
 
 <footer>
