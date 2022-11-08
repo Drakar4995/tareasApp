@@ -1,6 +1,6 @@
 body{
     text-align: center;
-    margin: 0%;
+    margin: auto;
 }
 
 input[type=text] {
@@ -22,10 +22,6 @@ input[type=text] {
 .top-spacer{
     margin-bottom: 30px;
     margin-top: 0 px;
-    background-color: #c83c3c;
-    color: white;
-    padding: 15px 25px;
-    text-decoration: none;
 }
 
 .boton-delete{
@@ -39,7 +35,9 @@ body p.addTask {
     font-size: 40px;
 }
 
-.titleformone{
-    padding-top: 50px;
-    margin-top: 50px;
+body p.title{
+    margin-top: 10px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 40px;
 }

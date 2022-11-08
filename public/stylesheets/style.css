@@ -83,18 +83,6 @@ footer p {
   margin-bottom: 50px;
 }
 
-.table-index td {
-  margin: auto;
-  margin-bottom: 50px;
-  padding: 10px;
-}
-
-.table-index th {
-  margin: auto;
-  margin-bottom: 50px;
-  padding: 20px;
-}
-
 .logo-link {
   background-color: none;
   color: #000
@@ -193,32 +181,4 @@ header .logo {
 .boton-delete:hover{
   background-color: #ff981b; /* Green */
   color: white;
-}
-
-.top-spacer{
-  margin-bottom: 100px;
-  margin-top: 30 px;
-  background-color: #c83c3c;
-  border-radius: 5px;
-  color: white;
-  padding: 15px 15px;
-  text-decoration: none;
-}
-
-.top-spacer:hover{
-  background-color: #ff981b; 
-}
-
-.top-spacer-form{
-  margin-bottom: 160px;
-  margin-top: 30 px;
-  padding: 15px 15px;
-  background-color: #c83c3c;
-  border-radius: 5px;
-  color: white;
-  text-decoration: none;
-}
-
-.top-spacer-form:hover{
-  background-color: #ff981b; 
 }

@@ -5,13 +5,13 @@ class IndexPageView extends PageView{
         this.content= `<p class="title-list">Listado de Tareas</p>
         <div class="div-index">
             <table class="table-index">
-                <thead style="margin: 20px">
+                <thead>
                     <tr>
                         <th>
                             Tareas
                         </th>
                         <th>
-                            <a class="top-spacer" href="/tareasApp/agregar" onclick="router.route()">Agregar tarea</a>
+                            <a class="logo-link" href="/tareasApp/agregar" onclick="router.route()" class="links-index">Agregar tarea</a>
                         </th>
                     </tr>
                 </thead>
@@ -20,8 +20,8 @@ class IndexPageView extends PageView{
            for(let i=0 ; i < tareas.length ; i++){
             this.content += `<tr> <td> <a href="controlador/ ?id=`+ tareas[i]._id+`" >` + tareas[i]._titulo +`</td> 
             <td>
-                            <a class="top-spacer" href="borrar-tarea.html">
-                                Eliminar
+                            <a class="logo-link" href="borrar-tarea.html">
+                                <input class="boton-delete" type="button" value="Eliminar" />
                             </a>
                         </td>
             </tr>`;
