@@ -15,7 +15,6 @@ class Tarea {
 
 class TareaApp {
     tareas = [] 
-    
     agregarTarea(titulo, descripcion) {
         let tarea = new Tarea(titulo,descripcion)
         this.tareas.push(tarea);
