@@ -9,6 +9,7 @@ a:not(.logo-link,.top-spacer,.top-spacer-form){
     background-size: 200% 100%;
     background-position: -100%;
     display: inline-block;
+    text-decoration: none;
     padding: 5px 0;
     position: relative;
     -webkit-background-clip: text;

@@ -2,6 +2,18 @@ class IndexPageView extends PageView{
     constructor(model){
         super(model);
         let tareas = model.getTareas();
+        this.setContent();
+        //this.incrementarContadorView =  new ContadorView(model, 'contador');
+    }
+    
+    refresh(){
+        this.setContent()
+        super.refresh();
+        //this.incrementarContadorView.refresh();
+    }
+
+    setContent(){
+        let tareas = this.model.getTareas();
         this.content= `<p class="title-list">Listado de Tareas</p>
         <div class="div-index">
             <table class="table-index">
@@ -18,7 +30,7 @@ class IndexPageView extends PageView{
                 <tbody>`;
 
            for(let i=0 ; i < tareas.length ; i++){
-            this.content += `<tr> <td> <a href="controlador/ ?id=`+ tareas[i]._id+`" >` + tareas[i]._titulo +`</td> 
+            this.content += `<tr> <td> <a href="controlador/?id=`+ tareas[i]._id+`" >` + tareas[i]._titulo +`</td> 
             <td>
                             <a class="top-spacer" href="borrar-tarea.html">
                                 Eliminar
@@ -27,11 +39,5 @@ class IndexPageView extends PageView{
             </tr>`;
 
            }
-        //this.incrementarContadorView =  new ContadorView(model, 'contador');
-    }
-    
-    refresh(){
-        super.refresh();
-        //this.incrementarContadorView.refresh();
     }
 }

@@ -1,5 +1,11 @@
 class AgregarController extends PageController{
-    constructor(regex,mode,view){
-        super(regex,mode,view);
+    constructor(regex,model,view){
+        super(regex,model,view);
+    }
+    onGuardarTarea(event){
+        let titulo = this.view.getTitulo();
+        let descripcion = this.view.getTitulo();
+        this.model.agregarTarea(titulo,descripcion);
+        this.view.refresh();
     }
 }

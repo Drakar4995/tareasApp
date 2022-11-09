@@ -2,7 +2,7 @@ let model, editarContadorPageController, editarContadorPageView, incrementarCont
 
 function init() {
     model = new TareaApp();
-    // model.agregarTarea("Titulo uno","descrision");
+    model.agregarTarea("Titulo uno","descrision");
     // model.agregarTarea("Titulo uadsasd","descradsision");
     // model.agregarTarea("Titulo uasdno","descrsision");
     // model.agregarTarea("Titulo uadsno","descrdasision");
