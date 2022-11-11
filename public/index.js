@@ -9,10 +9,14 @@ function init() {
     //editarContadorPageView = new EditarContadorPageView(model);
     indexPageView = new IndexPageView(model);
     agregarPageView = new AgregarPageView(model);
+    verTareaPageView = new VerTareaPageView(model);
+    borrarPageView = new BorrarPageView(model);
     //incrementarContadorPageView = new IncrementarContadorPageView(model);
     
     indexController = new IndexController(/\/tareasApp\/(index.html|listado)/ig,model,indexPageView);
     agregarController = new AgregarController(/\/tareasApp\/(agregar)/ig,model,agregarPageView);
+    verTareaController = new VerTareaController(/\/tareasApp\/(vertarea)/ig,model,verTareaPageView);
+    borrarController = new BorrarController(/\/tareasApp\/(borrartarea)/ig,model,borrarPageView);
     //editarContadorPageController = new EditarContadorPageController(/\/contador-pager-app\/(index.html|editar)/ig, model, editarContadorPageView);
     //incrementarContadorPageController = new IncrementarContadorPageController(/\/contador-pager-app\/(index.html|incrementar)/ig, model, incrementarContadorPageView);
     
@@ -20,6 +24,8 @@ function init() {
     router = new Router();
     router.addPageController(indexController);
     router.addPageController(agregarController);
+    router.addPageController(verTareaController);
+    router.addPageController(borrarController);
     //router.addPageController(incrementarContadorPageController)
     router.route();
 }

@@ -14,7 +14,7 @@ class IndexPageView extends PageView{
 
     setContent(){
         let tareas = this.model.getTareas();
-        this.content= `<p class="title-list">Listado de Tareas</p>
+        this.content= `<p class="addTask">Listado de Tareas</p>
         <div class="div-index">
             <table class="table-index">
                 <thead style="margin: 20px">
@@ -30,9 +30,9 @@ class IndexPageView extends PageView{
                 <tbody>`;
 
            for(let i=0 ; i < tareas.length ; i++){
-            this.content += `<tr> <td> <a href="controlador/?id=`+ tareas[i]._id+`" >` + tareas[i]._titulo +`</td> 
+            this.content += `<tr> <td> <a href="/tareasApp/vertarea/?id=`+ tareas[i]._id+`" onclick="router.route()">` + tareas[i]._titulo +`</td> 
             <td>
-                            <a class="top-spacer" href="borrar-tarea.html">
+                            <a class="top-spacer" href="/tareasApp/borrartarea/?id=`+ tareas[i]._id+`" onclick="router.route()">
                                 Eliminar
                             </a>
                         </td>
