@@ -6,7 +6,7 @@ class AgregarPageView extends PageView{
        </p>
        
        <div class="div-delete-task">
-        <a class="top-spacer-form" href="/tareasApp/listado" onclick="router.route('')">Listado</a>
+        <a class="top-spacer-form" href="/tareasApp/listado" onclick="router.route()">Listado</a>
        
         <form class="form-add">
             <label class="titleform" for="titulo">Titulo</label> <br>

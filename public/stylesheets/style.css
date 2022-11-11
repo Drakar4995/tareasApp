@@ -226,3 +226,25 @@ header .logo {
 .form-add{
   margin-top: 20px;
 }
+
+.ver-tarea-buttons{
+  margin-bottom: 160px;
+  margin-top: 40 px;
+  padding: 15px 15px;
+  margin-left: 15px;
+  background-color: #c83c3c;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+}
+
+.ver-tarea-buttons:hover{
+  background-color: #ff981b; 
+}
+.div-see-task,.div-delete-task{
+  margin-top: 25px;
+}
+
+.delete-task-separate{
+  margin-top: 30px;
+}

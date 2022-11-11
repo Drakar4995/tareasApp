@@ -16,7 +16,7 @@ class Tarea extends LocalStorageModel{
     }
     get descripcion() {
         this.deserialize();
-        return this._descripcion
+        return this._descripcion;
     }
     //Setters
     set titulo(titulo) {
@@ -56,13 +56,13 @@ class TareaApp extends LocalStorageModel {
         tarea._titulo = titulo
         tarea._descripcion = descripcion
         this.serialize();
-        return tarea
+        return tarea;
     }
     verTarea(_id) {
         this.deserialize();
         let tarea = this.tareas.find(tarea => tarea._id == _id)
         //Object.assign();
-        return tarea
+        return tarea;
     }
 
 }
