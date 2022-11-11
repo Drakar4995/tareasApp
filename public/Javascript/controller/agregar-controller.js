@@ -8,4 +8,8 @@ class AgregarController extends PageController{
         this.model.agregarTarea(titulo,descripcion);
         this.view.refresh();
     }
+    onLimpiar(){
+        document.getElementById('titulo').value = "";
+        document.getElementById('descripcion').value = "";
+    }
 }
