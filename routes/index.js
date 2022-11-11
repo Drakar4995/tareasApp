@@ -8,7 +8,4 @@ router.get('/', (req, res)=> {
   res.redirect('./tareasApp/index.html');
 });
 
-
-
-
 module.exports = router;

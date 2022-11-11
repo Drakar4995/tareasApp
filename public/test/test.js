@@ -44,12 +44,16 @@ describe("tarea app ", function () {
     })
     it('Test de verTarea',function(){
         //Arrange
-        let tareaApp = new TareaApp()
-        let tarea = new Tarea("titulo", "descripcion")
+        let tareaApp = new TareaApp();
         //Act
-        tareaApp.tareas.push(tarea)
-        let expected = tareaApp.verTarea(tarea._id)
+        let tarea = tareaApp.agregarTarea("titulo","descripcion")
+        let expected = tareaApp.verTarea(tarea.id);
         //Assert
-        assert.equal(expected,tarea)
+        assert.equal(expected._id,tarea.id);
+        assert.equal(expected._titulo,tarea.titulo);
+        assert.equal(expected._descripcion,tarea.descripcion);
     })
+
+    
+   
 })
