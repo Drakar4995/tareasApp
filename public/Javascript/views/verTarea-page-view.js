@@ -28,7 +28,7 @@ class VerTareaPageView extends PageView{
         <a class="ver-tarea-buttons" href="/tareasApp/listado" onclick="router.route()">
             Listado
         </a>
-        <a class="ver-tarea-buttons" href="modificar-tarea.html">
+        <a class="ver-tarea-buttons" href="/tareasApp/modificartarea/?id=`+id+`" onclick="router.route()">
             Modificar
         </a>
         <div class="div-see-task">
@@ -38,6 +38,7 @@ class VerTareaPageView extends PageView{
             <p>`+tarea._descripcion+`</p>
         </div>`;
     }
+    
     getId(){
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);

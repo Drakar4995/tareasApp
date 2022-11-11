@@ -13,10 +13,10 @@ class AgregarPageView extends PageView{
             <input class="text" id="titulo" type="text"> <br>
        
             <label class="titleform" for="descripcion">Descripcion</label> <br>
-            <textarea class="textarea" id="descripcion"> </textarea>
+            <textarea class="textarea" id="descripcion"></textarea>
         </form>
             <input class="boton-delete" type="button" onclick="agregarController.onGuardarTarea()" value="Guardar" />
-        <button class=boton-delete type="button" onclick=""> Limpiar </button>
+        <button class=boton-delete type="button" onclick="agregarController.onLimpiar()"> Limpiar </button>
        </div>`;
     }
 
