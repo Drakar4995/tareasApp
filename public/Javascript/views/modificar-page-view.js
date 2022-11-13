@@ -15,6 +15,7 @@ class ModificarPageView extends PageView {
     <a class="ver-tarea-buttons" href="/tareasApp/listado" onclick="router.route()">
             Listado
         </a>
+        <div class="div-modify">
         <form>
         <label class="titleform" for="titulo">Titulo</label> <br>
         <input id="titulo" class="text" type="text" value="` +
@@ -29,7 +30,9 @@ class ModificarPageView extends PageView {
     <input class="boton-delete" type="button" onclick="modificarController.onModificarTarea(event,` +
       id +
       `)" value="Guardar" />
-        <button class=boton-delete type="button" onclick="modificarController.onLimpiar()"> Limpiar </button>`;
+        <button class=boton-delete type="button" onclick="modificarController.onLimpiar()"> Limpiar </button>
+        <div>
+        </div>`;
   }
   refresh() {
     this.setContent();

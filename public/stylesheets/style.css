@@ -243,8 +243,13 @@ header .logo {
 }
 .div-see-task,.div-delete-task{
   margin-top: 25px;
+  padding-top: 25px;
 }
 
 .delete-task-separate{
   margin-top: 30px;
+}
+
+.div-modify{
+  margin-top: 20px;
 }
