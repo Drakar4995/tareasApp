@@ -7,7 +7,7 @@ class IndexPageView extends PageView{
     }
     
     refresh(){
-        this.setContent()
+        this.setContent();
         super.refresh();
         //this.incrementarContadorView.refresh();
     }
