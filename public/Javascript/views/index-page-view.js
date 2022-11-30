@@ -1,19 +1,17 @@
 class IndexPageView extends PageView{
     constructor(model){
         super(model);
-        let tareas = model.getTareas();
-        this.setContent();
+        this.refresh();
         //this.incrementarContadorView =  new ContadorView(model, 'contador');
     }
     
-    refresh(){
-        this.setContent();
+    async refresh() {
+        await this.setContent();
         super.refresh();
-        //this.incrementarContadorView.refresh();
     }
 
-    setContent(){
-        let tareas = this.model.getTareas();
+    async setContent(){
+        let tareas = await this._model.getTareas();
         this.content= `<p class="addTask">Listado de Tareas</p>
         <div class="div-index">
             <table class="table-index">

@@ -4,12 +4,12 @@ class ModificarPageView extends PageView {
     this.content = `<h1>ERROR </h1>`;
   }
 
-  setContent() {
+  async setContent() {
     let id = this.getId();
-    let tarea = model.verTarea(id);
+    let tarea = await this._model.verTarea(id);
     this.content =
       ` <p class="addTask">
-        Modificar Tarea N
+        Modificar Tarea `+id+`
     </p>
     <div class="div-see-task">
     <a class="ver-tarea-buttons" href="/tareasApp/listado" onclick="router.route()">
@@ -34,10 +34,10 @@ class ModificarPageView extends PageView {
         <div>
         </div>`;
   }
-  refresh() {
-    this.setContent();
+  async refresh() {
+    await this.setContent();
     super.refresh();
-  }
+}
   getTitulo() {
     return document.getElementById("titulo").value;
   }

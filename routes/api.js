@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var model = require('../model/modelo.js');
-var idGenerator = require('../model/id-generator.js');
 
 /* GET tareas listing. */
 router.get('/tareas', function(req, res, next) {
@@ -38,7 +37,7 @@ router.delete('/tareas/:id', function(req, res, next) {
 router.put('/tareas/:id', function (req, res, next) {
     try {
     let tarea = model.modificarTarea(req.params.id, req.body.titulo,
-    req.body.autores);
+    req.body.descripcion);
     return res.status(200).send(tarea);
     } catch (e) {
     res.statusMessage = e.message;

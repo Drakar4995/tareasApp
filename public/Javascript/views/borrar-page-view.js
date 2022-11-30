@@ -1,37 +1,30 @@
 class BorrarPageView extends PageView{
     constructor(model){
         super(model);
-        this.content = `<div class="div-delete-task">
-        <a class="ver-tarea-buttons" href="/tareasApp/listado" onclick="router.route()">
-            Listado
-        </a>
-        <div class=delete-task-separate>
-        <p class="addTask">Tarea N</p>
-        <p>La tarea N ha sido borrada</p>
-        </div>
-        `;
+        this.refresh();
     }
     
-    refresh(){
-        this.setContent();
+    async refresh() {
+        await this.setContent();
         super.refresh();
     }
 
-    setContent(){
+    async setContent(){
         let id = this.getId();
-        let tarea = model.verTarea(id);
-        model.borrarTarea(id);
-        this.content = `
-        <div class="div-delete-task">
-        <a class="ver-tarea-buttons" href="/tareasApp/listado" onclick="router.route()">
-            Listado
-        </a>
-        <div class=delete-task-separate>
-        <p class="addTask">Tarea `+tarea._titulo+`</p>
-        <p>La tarea `+tarea._titulo+` ha sido borrada, con id: `+id+`</p>
-        </div>
-        `;
-
+        if(id != null){
+            let tarea = await this._model.verTarea(id);
+            this._model.borrarTarea(id);
+            this.content = `
+            <div class="div-delete-task">
+            <a class="ver-tarea-buttons" href="/tareasApp/listado" onclick="router.route()">
+                Listado
+            </a>
+            <div class=delete-task-separate>
+            <p class="addTask">Tarea `+tarea._titulo+`</p>
+            <p>La tarea `+tarea._titulo+` ha sido borrada, con id: `+id+`</p>
+            </div>
+            `;
+        }
     }
     getId(){
         const queryString = window.location.search;
