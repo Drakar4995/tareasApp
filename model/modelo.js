@@ -1,9 +1,5 @@
 class Tarea{
-    constructor(titulo, descripcion) {
-        super("tarea");
-        this._id = idGenerator.genId();
-        this._titulo = titulo;
-        this._descripcion = descripcion;
+    constructor() {
     }
     //Getters
     get id() {
@@ -26,18 +22,20 @@ class Tarea{
 
 class TareaApp{
     tareas = []
+    lastId = 0;
     constructor() {
-        super('tareasApp');
     }
 
     agregarTarea(titulo, descripcion) {
-        let tarea = new Tarea(titulo, descripcion);
+        let tarea = new Tarea();
+        Object.assign(tarea,{titulo,descripcion, _id: this.lastId++});
         this.tareas.push(tarea);
         return tarea;
     }
     borrarTarea(_id) {
         this.tareas = this.tareas.filter(tarea => tarea._id != _id);
     }
+
     getTareas() {
         return this.tareas;
     }
@@ -55,4 +53,6 @@ class TareaApp{
     }
 
 }
+
+module.exports = new TareaApp();
 
