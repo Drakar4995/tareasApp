@@ -19,6 +19,7 @@ class BorrarPageView extends PageView{
 
     setContent(){
         let id = this.getId();
+        let tarea = model.verTarea(id);
         model.borrarTarea(id);
         this.content = `
         <div class="div-delete-task">
@@ -26,8 +27,8 @@ class BorrarPageView extends PageView{
             Listado
         </a>
         <div class=delete-task-separate>
-        <p class="addTask">Tarea `+id+`</p>
-        <p>La tarea `+id+` ha sido borrada</p>
+        <p class="addTask">Tarea `+tarea._titulo+`</p>
+        <p>La tarea `+tarea._titulo+` ha sido borrada, con id: `+id+`</p>
         </div>
         `;
 
