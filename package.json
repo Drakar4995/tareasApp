@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "nodemon ./index.js",
-    "start": "DEBUG=tareasapp:* nodemon ./bin/www"
+    "start": "DEBUG=tareasapp:* nodemon ./bin/www",
+    "test-rest": "./node_modules/.bin/mocha ./public/test/rest/api-test.js --reporter spec",
+    "test": "./node_modules/.bin/mocha ./public/test/test-modelo.js --reporter spec"
   },
   "dependencies": {
+    "chai-http": "^4.3.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "^3.1.8",

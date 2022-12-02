@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var model = require('../model/modelo.js');
+var modelclass = require('../model/modelo.js').TareaApp;
+var model = new modelclass();
 
 /* GET tareas listing. */
 router.get('/tareas', function(req, res, next) {
@@ -12,8 +13,8 @@ router.get('/tareas/:id', function (req, res, next) {
         let tarea = model.verTarea(req.params.id);
         return res.json(tarea);
     } catch (e) {
-        res.statusMessage = e.message;
-        return res.status(404).send();
+        res.status(500).send(err.message);
+        console.error(err);
     }
 });
 

@@ -23,6 +23,8 @@ class TareaAppProxy{
         let response = await fetch(`${this.base}/tareas/${_id}`, { method: 'DELETE' });
         if(!response.ok){
             console.error(err.message);
+        } else {
+            return response;
         }
     }
 
@@ -42,6 +44,8 @@ class TareaAppProxy{
         "application/json" } });
         if(!response.ok){
             console.error(err.message);
+        } else {
+            return response;
         }
     }
 
