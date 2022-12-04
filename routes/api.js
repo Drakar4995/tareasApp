@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var model = require('../model/modelo.js');
-var idGenerator = require('../model/id-generator.js');
 
 /* GET tareas listing. */
 router.get('/tareas', function(req, res, next) {

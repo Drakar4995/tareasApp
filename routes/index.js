@@ -7,5 +7,8 @@ router.get('/', (req, res)=> {
   console.log('dentro');
   res.redirect('./tareasApp/index.html');
 });
-
+router.get('/tareasApp', (req, res)=> {
+  console.log('dentro');
+  res.redirect('./tareasApp/index.html');
+});
 module.exports = router;
