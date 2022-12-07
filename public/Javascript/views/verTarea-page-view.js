@@ -16,14 +16,14 @@ class VerTareaPageView extends PageView{
         </div>`;
     }
     
-    refresh(){
-        this.setContent();
+   async refresh(){
+        await this.setContent();
         super.refresh();
     }
 
-    setContent(){
+    async setContent(){
         let id = this.getId();
-        let tarea = model.verTarea(id);
+        let tarea = await model.verTarea(id);
         this.content = `<p class="addTask">Ver Tarea ID:`+id+`</p>
         <a class="ver-tarea-buttons" href="/tareasApp/listado" onclick="router.route()">
             Listado

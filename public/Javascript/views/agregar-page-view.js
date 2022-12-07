@@ -20,8 +20,8 @@ class AgregarPageView extends PageView{
        </div>`;
     }
 
-    refresh(){
-        super.refresh();
+     refresh(){
+         super.refresh();
     }
 
     getTitulo(){

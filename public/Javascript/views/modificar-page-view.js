@@ -4,9 +4,9 @@ class ModificarPageView extends PageView {
     this.content = `<h1>ERROR </h1>`;
   }
 
-  setContent() {
+  async setContent() {
     let id = this.getId();
-    let tarea = model.verTarea(id);
+    let tarea = await model.verTarea(id);
     this.content =
       ` <p class="addTask">
         Modificar Tarea N
@@ -34,8 +34,8 @@ class ModificarPageView extends PageView {
         <div>
         </div>`;
   }
-  refresh() {
-    this.setContent();
+  async refresh() {
+    await this.setContent();
     super.refresh();
   }
   getTitulo() {

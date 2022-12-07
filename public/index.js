@@ -1,7 +1,7 @@
 let model, editarContadorPageController, editarContadorPageView, incrementarContadorPageView, incrementarContadorPageController, router
 
 function init() {
-    model = new TareaApp();
+    model = new TareaAppProxy();
     //editarContadorPageView = new EditarContadorPageView(model);
     indexPageView = new IndexPageView(model);
     agregarPageView = new AgregarPageView(model);

@@ -54,5 +54,5 @@ class TareaApp{
 
 }
 
-module.exports = new TareaApp();
+module.exports = {Tarea,TareaApp};
 

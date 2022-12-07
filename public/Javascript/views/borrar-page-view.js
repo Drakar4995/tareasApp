@@ -12,15 +12,15 @@ class BorrarPageView extends PageView{
         `;
     }
     
-    refresh(){
-        this.setContent();
+    async refresh(){
+        await this.setContent();
         super.refresh();
     }
 
-    setContent(){
-        let id = this.getId();
-        let tarea = model.verTarea(id);
-        model.borrarTarea(id);
+    async setContent(){
+        let id =  this.getId();
+        let tarea = await model.verTarea(id);
+        await model.borrarTarea(id);
         this.content = `
         <div class="div-delete-task">
         <a class="ver-tarea-buttons" href="/tareasApp/listado" onclick="router.route()">
