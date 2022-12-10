@@ -8,4 +8,9 @@ router.get('/', (req, res)=> {
   res.redirect('./tareasApp/index.html');
 });
 
+router.get('/tareasApp/listado', (req, res)=> {
+  console.log('dentro');
+  res.redirect('./index.html');
+});
+
 module.exports = router;
