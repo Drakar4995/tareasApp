@@ -1,6 +1,7 @@
 const assert = require("chai").assert;
 const Tarea = require("../../model/modelo").Tarea;
 const TareaApp  = require("../../model/modelo").TareaApp;
+
 describe('test de tarea', function () {
     let titulo = "titulo1"
     let descripcion = "descripcion1"
@@ -13,6 +14,14 @@ describe('test de tarea', function () {
 })
 
 describe("tarea app ", function () {
+    beforeEach(async function (){
+        let tareaApp = new TareaApp();
+        tareas = tareaApp.getTareas();
+
+        tareas.forEach( async function(tarea, index, array) {
+            tareaApp.borrarTarea(tarea._id);
+        });
+    });
     it('test de agregar tarea', function () {
         let tareaApp = new TareaApp()
         let tarea = new Tarea();
@@ -77,5 +86,19 @@ describe("tarea app ", function () {
 
         assert.equal(tarea2._descripcion,"descripcion2");
         assert.equal(tarea2._titulo,"titulo2");
+    })
+    it('Test de borrartodo',function(){
+        //Arrange
+        let tareaApp = new TareaApp();
+
+        tareaApp.agregarTarea("titulo1", "descripcion1");
+        tareaApp.agregarTarea("titulo2", "descripcion2");
+
+        tareaApp.borrarTodo();
+
+        tareas = tareaApp.getTareas();
+        
+        //Assert
+        assert.equal(tareas.length , 0);
     })
 })

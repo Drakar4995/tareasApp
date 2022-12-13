@@ -6,13 +6,13 @@ class TareaApp{
     constructor() {
     }
 
-    async borrarTareas(){
+    async borrarTodo(){
         return await Tarea.deleteMany({});
     }
     async getTareas(){
         return await Libro.find(); 
     }
-    async agregarTareas(titulo, descripcion) {
+    async agregarTarea(titulo, descripcion) {
         let tarea = new Tarea({ titulo, descripcion });
         return await tarea.save();
     }

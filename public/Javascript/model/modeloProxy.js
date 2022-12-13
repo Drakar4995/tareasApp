@@ -38,6 +38,17 @@ class TareaAppProxy{
         }
     }
 
+    async borrarTodo() {
+        let response = await fetch(`${this.base}/tareas`, {
+            method: 'DELETE'
+        });
+        if(!response.ok){
+            console.error(err.message);
+        } else {
+            return response;
+        }
+    }
+
     async modificarTarea(_id, titulo, descripcion) {
         let t = { titulo, descripcion };
         let response = await fetch(`${this.base}/tareas/${_id}`, { method: 'PUT', body: JSON.stringify(t), headers: { "Content-Type":
@@ -45,7 +56,8 @@ class TareaAppProxy{
         if(!response.ok){
             console.error(err.message);
         } else {
-            return response;
+            let tarea = await response.json();
+            return tarea;
         }
     }
 

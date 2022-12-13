@@ -35,6 +35,17 @@ router.delete('/tareas/:id', function(req, res, next) {
     }
 });
 
+router.delete('/tareas/', function(req, res, next) {
+    let id = req.params.id;
+    try{
+    model.borrarTodo();
+    res.json();
+    } catch(err){
+        res.status(500).send(err.message);
+        console.error(err);
+    }
+});
+
 router.put('/tareas/:id', function (req, res, next) {
     try {
     let tarea = model.modificarTarea(req.params.id, req.body.titulo,
