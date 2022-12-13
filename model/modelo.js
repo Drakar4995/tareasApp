@@ -1,24 +1,4 @@
-class Tarea{
-    constructor() {
-    }
-    //Getters
-    get id() {
-        return this._id;
-    }
-    get titulo() {
-        return this._titulo;
-    }
-    get descripcion() {
-        return this._descripcion;
-    }
-    //Setters
-    set titulo(titulo) {
-        this._titulo = titulo;
-    }
-    set descripcion(descripcion) {
-        this._descripcion = descripcion
-    }
-}
+const Tarea = require('./tarea');
 
 class TareaApp{
     tareas = []
@@ -26,32 +6,32 @@ class TareaApp{
     constructor() {
     }
 
-    agregarTarea(titulo, descripcion) {
-        let tarea = new Tarea();
-        Object.assign(tarea,{titulo,descripcion, _id: this.lastId++});
-        this.tareas.push(tarea);
-        return tarea;
+    async borrarTareas(){
+        return await Tarea.deleteMany({});
     }
-    borrarTarea(_id) {
-        this.tareas = this.tareas.filter(tarea => tarea._id != _id);
+    async getTareas(){
+        return await Libro.find(); 
     }
-
-    getTareas() {
-        return this.tareas;
-    }
-    modificarTarea(_id, titulo, descripcion) {
-        let index = this.tareas.findIndex((t)=>t._id==_id);
-        let tarea = this.tareas[index];
-        tarea.titulo=titulo;
-        tarea.descripcion=descripcion;
-        return tarea;
-    }
-    verTarea(_id) {
-        let tarea = this.tareas.find(tarea => tarea._id == _id)
-        if(!tarea)throw new Error(`La tarea con ID ${_id} no existe`);
-        return tarea;
+    async agregarTareas(titulo, descripcion) {
+        let tarea = new Tarea({ titulo, descripcion });
+        return await tarea.save();
     }
 
+    async borrarTarea(_id) {
+        let result = await Tarea.findByIdAndRemove(_id)
+        if (result == null) throw new Error('Tarea no encontrado'); else return;
+    }
+
+    async modificarTarea(id, titulo, descripcion) {
+        let resultado = await Libro.findByIdAndUpdate(id, { titulo, descripcion });
+        if (resultado == null) throw new Error(`Tarea no encontrado ${id}`) 
+        else return await this.verTarea(id);
+    }
+    async verTarea(id) {
+        let resultado = await Libro.findById(id)
+        if(resultado==null) throw new Error(`Tarea no encontrado ${id}`) 
+        else return resultado;
+    } 
 }
 
 module.exports = {Tarea,TareaApp}
