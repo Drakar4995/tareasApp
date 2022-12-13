@@ -12,11 +12,7 @@ describe('test de tarea', function () {
 describe("tarea app ", function () {
     beforeEach(async function (){
         let tareaApp = new TareaAppProxy();
-        tareas = await tareaApp.getTareas();
-
-        tareas.forEach( async function(tarea, index, array) {
-            await tareaApp.borrarTarea(tarea._id);
-        });
+        await tareaApp.borrarTodo();
     });
     it('test de agregar tarea', async function () {
         //Arrange
@@ -101,5 +97,19 @@ describe("tarea app ", function () {
 
         assert.equal(tarea2._descripcion,"descripcion2");
         assert.equal(tarea2._titulo,"titulo2");
+    })
+    it('Test de borrarTodo',async function(){
+        //Arrange
+        let tareaApp = new TareaAppProxy();
+
+        await tareaApp.agregarTarea("titulo1", "descripcion1");
+        await tareaApp.agregarTarea("titulo2", "descripcion2");
+
+        await tareaApp.borrarTodo();
+
+        tareas = await tareaApp.getTareas();
+        
+        //Assert
+        assert.equal(tareas.length, 0);
     })
 })

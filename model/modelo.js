@@ -26,6 +26,10 @@ class TareaApp{
     constructor() {
     }
 
+    borrarTodo(){
+        this.tareas = [];
+    }
+
     agregarTarea(titulo, descripcion) {
         let tarea = new Tarea();
         Object.assign(tarea,{titulo,descripcion, _id: this.lastId++});
