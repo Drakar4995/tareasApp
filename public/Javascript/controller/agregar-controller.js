@@ -10,8 +10,7 @@ class AgregarController extends PageController {
     if (titulo != "" && descripcion != "") {
       let addedTask = this.model.agregarTarea(titulo, descripcion);
       alert('Los datos se han guardado correctamente')
-      router.route("/tareasapp/index.html");
-      this.view.refresh();
+      router.route("/tareasapp/listado");
     }else{
         alert('Rellena todos los campos');
     }

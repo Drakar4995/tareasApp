@@ -56,7 +56,8 @@ class TareaAppProxy{
         if(!response.ok){
             console.error(err.message);
         } else {
-            return response;
+            let tarea = await response.json();
+            return tarea;
         }
     }
 
