@@ -1,6 +1,7 @@
 const assert = require("chai").assert;
 const Tarea = require("../../model/modelo").Tarea;
 const TareaApp  = require("../../model/modelo").TareaApp;
+
 describe('test de tarea', function () {
     let titulo = "titulo1"
     let descripcion = "descripcion1"
