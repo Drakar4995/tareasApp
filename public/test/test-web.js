@@ -17,29 +17,20 @@ describe("tarea app ", function () {
     it('test de agregar tarea', async function () {
         //Arrange
         let tareaApp = new TareaAppProxy();
-        let tarea = new Tarea();
-        let titulo = "titulo1"
-        let descripcion = "descripcion1"
-        Object.assign(tarea,{titulo,descripcion, _id: this.lastId++});
-
         await tareaApp.agregarTarea("titulo1", "descripcion1");
-
         tareas = await tareaApp.getTareas();
 
         //Assert
-        assert.equal(tareas[0]._titulo, tarea._titulo)
-        assert.equal(tareas[0]._descripcion, tarea._descripcion)
+        assert.equal(tareas[0].titulo, "titulo1")
+        assert.equal(tareas[0].descripcion, "descripcion1")
     })
     it('test de borrar tarea',async function(){
         //Arrange
         let tareaApp = new TareaAppProxy();
-        let tarea = new Tarea();
-        let titulo = "titulo1"
-        let descripcion = "descripcion1"
-        Object.assign(tarea,{titulo,descripcion, _id: this.lastId++});
-
         await tareaApp.agregarTarea("titulo1", "descripcion1");
-        tarea = await tareaApp.borrarTarea(tarea._id);
+        tareas = await tareaApp.getTareas();
+
+        tarea = await tareaApp.borrarTarea(tareas[0]._id);
         //Asert
         assert.isDefined(tarea);
     })
@@ -50,18 +41,14 @@ describe("tarea app ", function () {
         let des_mod = "descripcionMod"
 
         await tareaApp.agregarTarea("titulo1", "descripcion1");
-
         tareas = await tareaApp.getTareas();
-
         tarea = tareas[0];
-
         tareaApp.modificarTarea(tarea._id,title_mod,des_mod)
-
         tarea = await tareaApp.verTarea(tarea._id);
 
         //Assert
-        assert.equal(tarea._titulo,title_mod)
-        assert.equal(tarea._descripcion,des_mod)
+        assert.equal(tarea.titulo,title_mod)
+        assert.equal(tarea.descripcion,des_mod)
     })
     it('Test de ver Tarea',async function(){
         //Arrange
@@ -92,11 +79,11 @@ describe("tarea app ", function () {
         tarea2 = tareas[1];
         
         //Assert
-        assert.equal(tarea._descripcion,"descripcion1");
-        assert.equal(tarea._titulo,"titulo1");
+        assert.equal(tarea.descripcion,"descripcion1");
+        assert.equal(tarea.titulo,"titulo1");
 
-        assert.equal(tarea2._descripcion,"descripcion2");
-        assert.equal(tarea2._titulo,"titulo2");
+        assert.equal(tarea2.descripcion,"descripcion2");
+        assert.equal(tarea2.titulo,"titulo2");
     })
     it('Test de borrarTodo',async function(){
         //Arrange

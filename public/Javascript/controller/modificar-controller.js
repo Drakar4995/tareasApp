@@ -2,7 +2,7 @@ class ModificarController extends PageController {
   constructor(regex, model, view) {
     super(regex, model, view);
   }
-   onModificarTarea(event, id) {
+   onModificarTarea(id) {
     window.event.preventDefault();
     let titulo = this.view.getTitulo();
     let descripcion = this.view.getDescripcion();

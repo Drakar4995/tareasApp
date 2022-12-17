@@ -26,8 +26,8 @@ describe("Testing api funciones", function () {
         .end(function (err, res) {
             if (err) done(err); else { 
                 assert.equal(res.status, 200);
-                assert.equal(res.body._titulo, 'Título'); 
-                assert.equal(res.body._descripcion, 'descripcion'); 
+                assert.equal(res.body.titulo, 'Título'); 
+                assert.equal(res.body.descripcion, 'descripcion'); 
                 assert.isDefined(res.body._id);
                 done() 
             }
@@ -53,8 +53,8 @@ describe("Testing api funciones", function () {
                 .end(function (err, res) {
                     if (err) done(err); else { 
                         assert.equal(res.status, 200);
-                        assert.equal(res.body._titulo, 'Títulomod'); 
-                        assert.equal(res.body._descripcion, 'descripcionmod'); 
+                        assert.equal(res.body.titulo, 'Títulomod'); 
+                        assert.equal(res.body.descripcion, 'descripcionmod'); 
                         assert.equal(res.body._id, tarea._id); 
                         done() 
                     }
@@ -80,8 +80,8 @@ describe("Testing api funciones", function () {
                 tareas = res.body;
                 tarea = tareas[0];
                 assert.equal(res.status, 200);
-                assert.equal(tarea._titulo, 'TítuloLista'); 
-                assert.equal(tarea._descripcion, 'descripcionLista'); 
+                assert.equal(tarea.titulo, 'TítuloLista'); 
+                assert.equal(tarea.descripcion, 'descripcionLista'); 
                 done()
             }
             });
@@ -109,8 +109,8 @@ describe("Testing api funciones", function () {
                 .end(function (err, res) {
                     if (err) done(err); else { 
                         assert.equal(res.status, 200);
-                        assert.equal(res.body._titulo, 'TítuloEspecifica'); 
-                        assert.equal(res.body._descripcion, 'descripcionEspecifica'); 
+                        assert.equal(res.body.titulo, 'TítuloEspecifica'); 
+                        assert.equal(res.body.descripcion, 'descripcionEspecifica'); 
                         assert.equal(res.body._id, tarea._id); 
                         done() 
                     }

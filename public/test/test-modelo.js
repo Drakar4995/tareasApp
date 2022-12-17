@@ -1,104 +1,73 @@
-const assert = require("chai").assert;
-const Tarea = require("../../model/modelo").Tarea;
-const TareaApp  = require("../../model/modelo").TareaApp;
+var mongoose = require("mongoose");
+var assert = require("chai").assert;
+var modelclass = require('../../model/modelo').TareaApp;
+var model = new modelclass();
 
-describe('test de tarea', function () {
-    let titulo = "titulo1"
-    let descripcion = "descripcion1"
-    it('test del constructor', function () {
-        let expected = new Tarea();
-        Object.assign(expected,{titulo,descripcion, _id: this.lastId++});
-        assert.equal(expected.titulo, titulo)
-        assert.equal(expected.descripcion, descripcion)
-    })
-})
 
-describe("tarea app ", function () {
-    beforeEach(async function (){
-        let tareaApp = new TareaApp();
-        tareas = tareaApp.getTareas();
+describe("Libreria", function () {
+  beforeEach(async function () {
+    await model.borrarTodo();
+  });
+  it("Tareas Agregar Tarea", async function () {
+    var tareas;
+    let tarea = await model.agregarTarea("Titulo", "Descripcion");
+    tareas = await model.getTareas();
+    assert.equal(tareas.length, 1);
+    assert.equal(tarea.titulo, "Titulo");
+    assert.equal(tarea.descripcion, "Descripcion");
+    assert.isDefined(tarea._id);
+  });
 
-        tareas.forEach( async function(tarea, index, array) {
-            tareaApp.borrarTarea(tarea._id);
-        });
-    });
-    it('test de agregar tarea', function () {
-        let tareaApp = new TareaApp()
-        let tarea = new Tarea();
-        let titulo = "titulo1"
-        let descripcion = "descripcion1"
-        Object.assign(tarea,{titulo,descripcion, _id: this.lastId++});
+  it("Tareas ver tareas", async function () {
+    var tareas = await model.getTareas();
+    assert.equal(tareas.length, 0);
+    await model.agregarTarea("Titulo", "Descripcion");
+    tareas = await model.getTareas();
+    assert.equal(tareas.length, 1);
+    await model.agregarTarea("Titulo", "Descripcion");
+    tareas = await model.getTareas();
+    assert.equal(tareas.length, 2);
+  });
+  it("Tareas ver tarea", async function () {
+    var tarea = await model.agregarTarea("Titulo", "Descripcion");
+    tarea = await model.verTarea(tarea._id.toString());
+    assert.equal(tarea.titulo, "Titulo");
+    assert.equal(tarea.descripcion, "Descripcion");
+    assert.isDefined(tarea._id);
+  });
+  it("Tareas Modificar tarea", async function () {
+    var tarea = await model.agregarTarea("Titulo", "Descripcion");
+    tarea = await model.verTarea(tarea._id.toString());
+    assert.equal(tarea.titulo, "Titulo");
+    assert.equal(tarea.descripcion, "Descripcion");
+    assert.isDefined(tarea._id);
+    let id = tarea._id.toString();
+    await model.modificarTarea(tarea._id.toString(), "TituloX", "DescripcionX");
+    tarea = await model.verTarea(tarea._id.toString());
+    assert.equal(tarea.titulo, "TituloX");
+    assert.equal(tarea.descripcion, "DescripcionX");
+    assert.equal(tarea.id.toString(), id);
+  });
+  it("Tareas Borrar tarea", async function () {
+    await model.agregarTarea("Titulo", "Descripcion");
+    let tareas = await model.getTareas();
+    assert.equal(tareas.length, 1);
+    await model.borrarTarea(tareas[0]._id);
+    let tareas2 = await model.getTareas();
+    assert.equal(tareas2.length, 0);
+  });
+  it("Tareas Borrar todas las tareas", async function () {
+    await model.agregarTarea("Titulo", "Descripcion");
+    await model.agregarTarea("Titulo", "Descripcion");
+    await model.agregarTarea("Titulo", "Descripcion");
+    let tareas = await model.getTareas();
+    assert.equal(tareas.length, 3);
+    await model.borrarTodo();
+    let tareas2 = await model.getTareas();
+    assert.equal(tareas2.length, 0);
+  });
 
-        tareaApp.agregarTarea("titulo1", "descripcion1");
-
-        assert.equal(tareaApp.tareas[0]._titulo, tarea._titulo)
-        assert.equal(tareaApp.tareas[0]._descripcion, tarea._descripcion)
-    })
-    it('test de borrar tarea',function(){
-
-        let tareaApp = new TareaApp()
-        let tarea = new Tarea("titulo", "descripcion")
-        tareaApp.tareas.push(tarea)
-
-        tareaApp.borrarTarea(tarea._id)
-        assert.equal(tareaApp.tareas.length,0)
-    })
-    it('Test de Modificar Tarea',function(){
-        //Arrange
-        let tareaApp = new TareaApp()
-        let tarea = new Tarea("titulo", "descripcion")
-        let des_mod = "tituloMod"
-        let title_mod = "descripcionMod"
-
-        //Act
-        tareaApp.tareas.push(tarea)
-        tareaApp.modificarTarea(tarea._id,title_mod,des_mod)
-
-        //Assert
-        assert.equal(tareaApp.tareas[0].titulo,title_mod)
-        assert.equal(tareaApp.tareas[0].descripcion,des_mod)
-    })
-    it('Test de verTarea',function(){
-        //Arrange
-        let tareaApp = new TareaApp()
-        let tarea = new Tarea("titulo", "descripcion")
-        //Act
-        tareaApp.tareas.push(tarea)
-        let expected = tareaApp.verTarea(tarea._id)
-        //Assert
-        assert.equal(expected,tarea)
-    })
-    it('Test de listar tareas',function(){
-        //Arrange
-        let tareaApp = new TareaApp();
-
-        tareaApp.agregarTarea("titulo1", "descripcion1");
-        tareaApp.agregarTarea("titulo2", "descripcion2");
-
-        tareas = tareaApp.getTareas();
-
-        tarea = tareas[0];
-        tarea2 = tareas[1];
-        
-        //Assert
-        assert.equal(tarea._descripcion,"descripcion1");
-        assert.equal(tarea._titulo,"titulo1");
-
-        assert.equal(tarea2._descripcion,"descripcion2");
-        assert.equal(tarea2._titulo,"titulo2");
-    })
-    it('Test de borrartodo',function(){
-        //Arrange
-        let tareaApp = new TareaApp();
-
-        tareaApp.agregarTarea("titulo1", "descripcion1");
-        tareaApp.agregarTarea("titulo2", "descripcion2");
-
-        tareaApp.borrarTodo();
-
-        tareas = tareaApp.getTareas();
-        
-        //Assert
-        assert.equal(tareas.length , 0);
-    })
-})
+  after(async function () {
+   return mongoose.disconnect();
+  });
+});

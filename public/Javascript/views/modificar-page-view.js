@@ -27,7 +27,7 @@ class ModificarPageView extends PageView {
       tarea.descripcion +
       `</textarea>
     </form>
-    <input class="boton-delete" type="button" onclick="modificarController.onModificarTarea(event,`+id+`)" value="Guardar" />
+    <input class="boton-delete" type="button" onclick='modificarController.onModificarTarea("`+tarea._id+`")' value="Guardar" />
         <button class=boton-delete type="button" onclick="modificarController.onLimpiar()"> Limpiar </button>
         <div>
         </div>`;
@@ -38,6 +38,13 @@ class ModificarPageView extends PageView {
 }
   getTitulo() {
     return document.getElementById("titulo").value;
+  }
+
+  getId(){
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    let id = urlParams.get('id');
+    return id;
   }
 
   getDescripcion() {

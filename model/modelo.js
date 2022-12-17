@@ -25,7 +25,7 @@ class TareaApp {
   }
 
   async borrarTodo() {
-    return await Tarea.deleteMany({});
+    return await Tarea.deleteMany();
   }
   async getTareas() {
     let result =  await Tarea.find();
