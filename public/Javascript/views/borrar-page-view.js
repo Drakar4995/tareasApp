@@ -20,8 +20,8 @@ class BorrarPageView extends PageView{
                 Listado
             </a>
             <div class=delete-task-separate>
-            <p class="addTask">Tarea `+tarea._titulo+`</p>
-            <p>La tarea `+tarea._titulo+` ha sido borrada, con id: `+id+`</p>
+            <p class="addTask">Tarea `+tarea.titulo+`</p>
+            <p>La tarea `+tarea.titulo+` ha sido borrada, con id: `+id+`</p>
             </div>
             `;
         }

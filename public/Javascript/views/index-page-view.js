@@ -28,7 +28,7 @@ class IndexPageView extends PageView{
                 <tbody>`;
 
            for(let i=0 ; i < tareas.length ; i++){
-            this.content += `<tr> <td> <a href="/tareasApp/vertarea/?id=`+ tareas[i]._id+`" onclick="router.route()">` + tareas[i]._titulo +`</td> 
+            this.content += `<tr> <td> <a href="/tareasApp/vertarea/?id=`+ tareas[i]._id+`" onclick="router.route()">` + tareas[i].titulo +`</td> 
             <td>
                             <a class="top-spacer" href="/tareasApp/borrartarea/?id=`+ tareas[i]._id+`" onclick="router.route()">
                                 Eliminar

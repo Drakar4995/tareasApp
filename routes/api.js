@@ -4,13 +4,15 @@ var modelclass = require('../model/modelo.js').TareaApp;
 var model = new modelclass();
 
 /* GET tareas listing. */
-router.get('/tareas', function(req, res, next) {
-  return res.json(model.getTareas());
+router.get('/tareas', async function(req, res, next) {
+  tareasget = await model.getTareas();
+  let respuesta = res.json(tareasget);
+  return respuesta;
 });
 
-router.get('/tareas/:id', function (req, res, next) {
+router.get('/tareas/:id', async function (req, res, next) {
     try {
-        let tarea = model.verTarea(req.params.id);
+        let tarea = await model.verTarea(req.params.id);
         return res.json(tarea);
     } catch (e) {
         res.status(500).send(err.message);
@@ -18,16 +20,16 @@ router.get('/tareas/:id', function (req, res, next) {
     }
 });
 
-router.post('/tareas', function(req, res, next) {
+router.post('/tareas', async function(req, res, next) {
     let tarea = req.body;
-    tarea = model.agregarTarea(tarea.titulo,tarea.descripcion);
+    tarea = await model.agregarTarea(tarea.titulo,tarea.descripcion);
     res.json(tarea);
 });
 
-router.delete('/tareas/:id', function(req, res, next) {
+router.delete('/tareas/:id', async function(req, res, next) {
     let id = req.params.id;
     try{
-    model.borrarTarea(id);
+    await model.borrarTarea(id);
     res.json();
     } catch(err){
         res.status(500).send(err.message);
@@ -35,10 +37,10 @@ router.delete('/tareas/:id', function(req, res, next) {
     }
 });
 
-router.delete('/tareas/', function(req, res, next) {
+router.delete('/tareas/', async function(req, res, next) {
     let id = req.params.id;
     try{
-    model.borrarTodo();
+    await model.borrarTodo();
     res.json();
     } catch(err){
         res.status(500).send(err.message);
@@ -46,9 +48,9 @@ router.delete('/tareas/', function(req, res, next) {
     }
 });
 
-router.put('/tareas/:id', function (req, res, next) {
+router.put('/tareas/:id', async function (req, res, next) {
     try {
-    let tarea = model.modificarTarea(req.params.id, req.body.titulo,
+    let tarea = await model.modificarTarea(req.params.id, req.body.titulo,
     req.body.descripcion);
     return res.status(200).send(tarea);
     } catch (e) {

@@ -19,17 +19,15 @@ class ModificarPageView extends PageView {
         <form>
         <label class="titleform" for="titulo">Titulo</label> <br>
         <input id="titulo" class="text" type="text" value="` +
-      tarea._titulo +
+      tarea.titulo +
       `"> <br>
 
         <label class="titleform" for="descripcion">Descripcion</label> <br>
         <textarea id="descripcion" class="textarea">` +
-      tarea._descripcion +
+      tarea.descripcion +
       `</textarea>
     </form>
-    <input class="boton-delete" type="button" onclick="modificarController.onModificarTarea(event,` +
-      id +
-      `)" value="Guardar" />
+    <input class="boton-delete" type="button" onclick="modificarController.onModificarTarea(event,`+id+`)" value="Guardar" />
         <button class=boton-delete type="button" onclick="modificarController.onLimpiar()"> Limpiar </button>
         <div>
         </div>`;

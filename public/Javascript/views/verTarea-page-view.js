@@ -22,9 +22,9 @@ class VerTareaPageView extends PageView{
             </a>
             <div class="div-see-task">
                 <p class="titleform">Titulo</p>
-                <p>`+tarea._titulo+`</p>
+                <p>`+tarea.titulo+`</p>
                 <p class="titleform">Descripcion</p>
-                <p>`+tarea._descripcion+`</p>
+                <p>`+tarea.descripcion+`</p>
             </div>`;
         }
     }
