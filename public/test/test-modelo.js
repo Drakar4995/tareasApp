@@ -4,7 +4,7 @@ var modelclass = require('../../model/modelo').TareaApp;
 var model = new modelclass();
 
 
-describe("Libreria", function () {
+describe("Tarea App", function () {
   beforeEach(async function () {
     await model.borrarTodo();
   });
